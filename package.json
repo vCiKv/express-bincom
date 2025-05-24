@@ -1,0 +1,22 @@
+{
+	"name": "express-bincom",
+	"private": true,
+	"version": "0.0.0",
+	"main": "server.js",
+	"scripts": {
+		"start-server": "nodemon server.js",
+		"dev-client": "pnpm --filter client dev",
+		"start": "concurrently \"pnpm run start-server\" \"pnpm run dev-client\"",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"dependencies": {
+		"concurrently": "^9.1.2",
+		"cors": "^2.8.5",
+		"dotenv": "^16.5.0",
+		"express": "^5.1.0",
+		"mysql2": "^3.14.1"
+	},
+	"devDependencies": {
+		"nodemon": "^3.1.10"
+	}
+}
