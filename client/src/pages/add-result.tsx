@@ -23,13 +23,13 @@ function AddPollingUnitResults() {
   }
   useEffect(() => {
     const getParties = async () => {
-      const res = await axios.get("http://localhost:5000/api/get-parties")
+      const res = await axios.get(import.meta.env.VITE_API_SERVER + "/api/get-parties")
       if (res.statusText.toLowerCase() === "ok") {
         setPartyList(res.data)
       }
     }
     const getPuDetails = async () => {
-      const res = await axios.get("http://localhost:5000/api/get-pu")
+      const res = await axios.get(import.meta.env.VITE_API_SERVER + "/api/get-pu")
       if (res.statusText.toLowerCase() === "ok") {
         setPuDetails(res.data)
       }
@@ -58,7 +58,7 @@ function AddPollingUnitResults() {
         setLoading(false)
       }, 15000);
     }
-    await axios.post("http://localhost:5000/api/add-pu-result", {
+    await axios.post(import.meta.env.VITE_API_SERVER + "/api/add-pu-result", {
       pollingUnitId: pollingUnitUniquieid,
       party: partyAbbreviation,
       user: userName,

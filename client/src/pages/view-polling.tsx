@@ -47,7 +47,7 @@ export default function ViewResultsPollingUnit() {
   useEffect(() => {
     //get all polling units
     const getPuDetails = async () => {
-      const res = await axios.get("http://localhost:5000/api/get-pu")
+      const res = await axios.get(import.meta.env.VITE_API_SERVER + "/api/get-pu")
       if (res.statusText.toLowerCase() === "ok") {
         setPuDetails(res.data)
       }
@@ -66,7 +66,7 @@ export default function ViewResultsPollingUnit() {
     if (isNaN(activePuId) || activePuId <= 0) {
       return
     }
-    const res = await axios.get("http://localhost:5000/api/get-pu/" + activePuId)
+    const res = await axios.get(import.meta.env.VITE_API_SERVER + "/api/get-pu/" + activePuId)
     if (res.statusText.toLowerCase() === "ok") {
       findPollingName(activePuId)
       setTableData(res.data)

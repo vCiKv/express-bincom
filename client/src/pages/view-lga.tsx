@@ -58,7 +58,7 @@ export default function ViewResultsLGA() {
   const [activeState, setActiveState] = useState<number | string>(0)
   useEffect(() => {
     const getLgaResults = async (stateId: string | number) => {
-      const res = await axios.get("http://localhost:5000/api/get-lga-results/" + stateId)
+      const res = await axios.get(import.meta.env.VITE_API_SERVER + "/api/get-lga-results/" + stateId)
       if (res.statusText.toLowerCase() === "ok") {
         setLgaResults(res.data)
         setActiveLga(new Set(res.data.lgaName))
@@ -72,7 +72,7 @@ export default function ViewResultsLGA() {
 
   useEffect(() => {
     const getStates = async () => {
-      const res = await axios.get("http://localhost:5000/api/get-states")
+      const res = await axios.get(import.meta.env.VITE_API_SERVER + "/api/get-states")
       if (res.statusText.toLowerCase() === "ok") {
         setAllStates(res.data)
       }
