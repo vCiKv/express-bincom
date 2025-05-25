@@ -2,26 +2,27 @@ require('dotenv').config();
 const mysql = require('mysql2/promise');
 
 //with env
-// const pool = mysql.createPool({
-//   host: process.env.DB_HOST,
-//   user: process.env.DB_USER,
-//   password: process.env.DB_PASSWORD,
-//   database: "bincomphptest",
-//   waitForConnections: true,
-//   connectionLimit: 10,
-//   queueLimit: 0,
-// });
-
-//without env or locally
 const pool = mysql.createPool({
-  host: "localhost",
-  user: "root",
-  password: "",
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  port:process.env.DB_PORT,
   database: "bincomphptest",
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
 });
+
+//without env or locally
+// const pool = mysql.createPool({
+//   host: "localhost",
+//   user: "root",
+//   password: "",
+//   database: "bincomphptest",
+//   waitForConnections: true,
+//   connectionLimit: 10,
+//   queueLimit: 0,
+// });
 
 async function testDbConnection() {
   try {
