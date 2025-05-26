@@ -48,7 +48,7 @@ export default function ViewResultsPollingUnit() {
     //get all polling units
     const getPuDetails = async () => {
       const res = await axios.get(import.meta.env.VITE_API_SERVER + "/api/get-pu")
-      if (res.statusText.toLowerCase() === "ok") {
+      if (res.status < 400) {
         setPuDetails(res.data)
       }
     }
@@ -67,7 +67,7 @@ export default function ViewResultsPollingUnit() {
       return
     }
     const res = await axios.get(import.meta.env.VITE_API_SERVER + "/api/get-pu/" + activePuId)
-    if (res.statusText.toLowerCase() === "ok") {
+    if (res.status < 400) {
       findPollingName(activePuId)
       setTableData(res.data)
     }

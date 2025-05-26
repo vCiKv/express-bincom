@@ -38,15 +38,9 @@ function App() {
         <Route path="/" >
           <p className='container text-center'>Click on the links above to check the results</p>
         </Route>
-        <Route path="/view-lga-results">
-          <ViewResultsLGA />
-        </Route>
-        <Route path="/view-polling-result">
-          <ViewResultsPollingUnit />
-        </Route>
-        <Route path="/add-result">
-          <AddNewUnit />
-        </Route>
+        <Route path="/view-lga-results" component={ViewResultsLGA} />
+        <Route path="/view-polling-result" component={ViewResultsPollingUnit} />
+        <Route path="/add-result" component={AddNewUnit} />
         <Route><NotFound /></Route>
       </Switch>
     </>

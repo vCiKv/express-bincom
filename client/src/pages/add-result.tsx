@@ -24,13 +24,13 @@ function AddPollingUnitResults() {
   useEffect(() => {
     const getParties = async () => {
       const res = await axios.get(import.meta.env.VITE_API_SERVER + "/api/get-parties")
-      if (res.statusText.toLowerCase() === "ok") {
+      if (res.status < 400) {
         setPartyList(res.data)
       }
     }
     const getPuDetails = async () => {
       const res = await axios.get(import.meta.env.VITE_API_SERVER + "/api/get-pu")
-      if (res.statusText.toLowerCase() === "ok") {
+      if (res.status < 400) {
         setPuDetails(res.data)
       }
     }
